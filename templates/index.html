@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+<body>
+    <h1>Posterous-style blogging on App Engine</h1>
+    
+    <div id="posts">
+        
+        {% if posts %}
+            
+            {% for post in posts %}
+            
+                <div class="post">
+                    <h3>{{ post.title }}</h3>
+                    <div class="post-content">
+                        {{ post.body }}
+                    </div>
+                    <p><small>Posted on {{ post.added|date:"F j, Y" }} at {{ post.added|time:"H:i:s" }} by {{ post.author }}.</small></p>
+                </div>
+            
+            {% endfor %}
+            
+        {% else %}
+            <p>No posts yet.</p>
+        {% endif %}
+        
+    </div>
+    
+</body>
+</html>
